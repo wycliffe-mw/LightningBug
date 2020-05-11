@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-size: 80%;
+        }
+
+        button {
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #e00267 ;
+            border-radius: 4px;
+        }
+
+        .option_set {
+            background: palegreen;
+        }
+
+        input {
+            padding: 5px;
+            margin: 10px;
+            width: 300px;
+            height: 20px ;
+            border: 1px solid #e00267 ;
+            border-radius: 4px;
+        }
+    </style>
+    <script src="scripts/jquery-3.5.0.min.js"></script>
+</head>
+<body>
+<img src="images/lightningbug64.png">
+<h3>About Lightning Bug</h3>
+<p>Lightning Bug adds a few extra features to FireFly Learning
+    that make it easier to set tasks for online lessons.</p>
+<ul>
+    <li>A button on each lesson in the Day and Week planner to create a task.</li>
+    <li>The button changes colour to show when a task has been set for that lesson.</li>
+    <li>The button links to the task definition allowing you to quickly check task completion and/or edit the task</li>
+</ul>
+<p>Lightning Bug is in no way affiliated with FireFly Learning.
+    If you find any problems or need help with Lightning Bug please send me a twitter DM to @eduwaller.</p>
+
+<h3>Lightning Bug Options</h3>
+<p><strong>Enter your FireFly server url here to enable Lightning Bug.</strong></p>
+<input type="text" name="serverurl" id="serverurl" value="" placeholder=" e.g. https://<yourschool>.fireflycloud.net/">
+<br>
+<br>
+<p><strong>Enter your subject name. (optional - added to task title if set)</strong></p>
+<input type="text" name="subject" id="subject" value="" placeholder=" e.g. English">
+<br>
+<br>
+<p><strong>Start date and Due date for lesson tasks</strong></p>
+<table>
+    <tr>
+        <td>Start date</td>
+        <td><button id="start_day_before">Day before the lesson</button></td>
+        <td><button id="start_on_day">Day of the lesson</button></td>
+    </tr>
+    <tr>
+        <td>Due date</td>
+        <td><button id="due_day_after">The day after the lesson</button></td>
+        <td><button id="due_on_day">The day of the lesson</button></td>
+    </tr>
+</table>
+</body>
+<script src="options.js"></script>
+</html>

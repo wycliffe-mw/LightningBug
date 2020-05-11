@@ -1,0 +1,63 @@
+body {
+    background: red;
+}
+.lp_create_lesson_task {
+    background: palegoldenrod !important;
+}
+
+.lp_edit_lesson_task {
+    background: palegreen !important;
+}
+
+.ff_module-button {
+    margin: 5px !important;
+}
+
+.ff_module-button--tertiary {
+    display: inline-block;
+}
+
+.lp_week_planner_button {
+    position: absolute;
+    top  : 0px;
+    right : 0px;
+    width : calc( 25% - 4px) ;
+    height: calc( 100% - 4px);
+    overflow: hidden;
+    padding: 2px;
+    border: 1px solid #e00267 ;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.lp_button_image {
+    position:absolute;
+    top: 0;
+    right:0;
+    transform: translate(0%, 0%);
+    margin: 2px;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.8); /* purple background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.overlaytext{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    color: #e00267;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}

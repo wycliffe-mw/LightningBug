@@ -1,0 +1,54 @@
+{
+        "name": "Lightning Bug",
+        "version": "0.9.4",
+        "description": "Lightning Bug adds extra capabilities to FireFly Learning to make creating tasks for online lessons easier.",
+        "manifest_version": 2,
+        "permissions": ["activeTab","declarativeContent","storage"],
+        "background": {
+                "scripts": ["scripts/jquery-3.5.0.min.js","background.js"],
+                "persistent": false
+        },
+        "browser_action": {
+                "default_popup": "popup.html",
+                "default_icon": {
+                        "16": "images/lightningbug16.png",
+                        "32": "images/lightningbug32.png",
+                        "48": "images/lightningbug48.png",
+                        "64": "images/lightningbug64.png",
+                        "128": "images/lightningbug128.png"
+                }
+        },
+        "icons": {
+                "16": "images/lightningbug16.png",
+                "32": "images/lightningbug32.png",
+                "48": "images/lightningbug48.png",
+                "64": "images/lightningbug64.png",
+                "128": "images/lightningbug128.png"
+        },
+        "options_page": "options.html",
+
+        "content_scripts": [
+                {
+                        "css": ["styles.css"],
+                        "js": ["scripts/jquery-3.5.0.min.js","common.js","day_planner.js"],
+                        "matches": ["https://*/planner", "https://*/planner/day/*"]
+                },
+                {
+                        "css": ["styles.css"],
+                        "js": ["scripts/jquery-3.5.0.min.js","common.js","week_planner.js"],
+                        "matches": ["https://*/planner/week/*"]
+                },
+                {
+                        "css": ["styles.css"],
+                        "js": ["scripts/jquery-3.5.0.min.js","common.js","task.js"],
+                        "matches": ["https://*/tasks/*"]
+                },
+                {
+                        "css": ["styles.css"],
+                        "js": ["scripts/jquery-3.5.0.min.js","common.js","settask.js"],
+                        "matches": ["https://*/set-tasks/*"]
+                }
+        ],
+        "web_accessible_resources": ["images/lightningbug128.png","images/lightningbug64.png","images/lightningbug32.png","images/lightningbug24.png","images/lightningbug16.png"]
+
+}
