@@ -1,0 +1,2 @@
+# LightningBug
+LightningBug Chrome extension
