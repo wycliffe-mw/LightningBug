@@ -24,6 +24,10 @@ function create_lesson_task(event) {
     createEditLessonTask(lesson,false);
 }
 
+function launchTaskPopup(event ) {
+    var lesson = getLessonData(event.target);
+    showTaskPopup(event , lesson );
+}
 
 function createRowButton(row) {
     var lesson = getLessonData(row);
@@ -52,11 +56,32 @@ function createRowButton(row) {
         }
         row.append(button);
         button.css( "display" , "inline-block");
-        button.bind('click', create_lesson_task);
+        button.mousedown(function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            switch (event.which) {
+                case 1:
+                    create_lesson_task(event);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    launchTaskPopup(event);
+                    break;
+                default:
+                    alert('You have a strange Mouse!');
+            }
+        });
     } );
 }
 
 checkServerURL(function () {
+    // stop default context menu popping up
+    $('body').attr('oncontextmenu','return false;')
+
+    // create the task edit popup
+    createTaskPopup();
+
     // add buttons
     var rows = $(".ff_module-planner-note__actions");
     for (var index = 0; index < rows.length; ++index) {

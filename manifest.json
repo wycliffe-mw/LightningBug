@@ -1,6 +1,6 @@
 {
         "name": "Lightning Bug",
-        "version": "0.9.4",
+        "version": "0.9.5",
         "description": "Lightning Bug adds extra capabilities to FireFly Learning to make creating tasks for online lessons easier.",
         "manifest_version": 2,
         "permissions": ["activeTab","declarativeContent","storage"],

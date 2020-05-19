@@ -18,6 +18,7 @@ function getLessonData(element) {
 
 function create_lesson_task(event) {
     var lesson = getLessonData($($(event.target).parent().children()[0]));
+    console.log( lesson );
     createEditLessonTask(lesson,false);
 }
 
@@ -42,12 +43,40 @@ function createRowButton(lessonlink) {
                 '</button>');
         }
         button.css( "display" , "inline-block");
-        button.bind('click', create_lesson_task ) ;
+        button.mousedown(function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            switch (event.which) {
+                case 1:
+                    create_lesson_task(event);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    launchTaskPopup(event);
+                    break;
+                default:
+                    alert('You have a strange Mouse!');
+            }
+        });
         lessonlink.parent().append(button);
     } );
 }
 
+function launchTaskPopup(event ) {
+    var lesson = getLessonData($($(event.target).parent().children()[0]));
+    showTaskPopup(event , lesson );
+}
+
+
+
 checkServerURL( function() {
+    // stop default context menu popping up
+    $('body').attr('oncontextmenu','return false;')
+
+    // create the task edit popup
+    createTaskPopup();
+
     //find lesson divs
     var classrefs = $("a[href*='/profile']");
     for (index = 0; index < classrefs.length; ++index) {

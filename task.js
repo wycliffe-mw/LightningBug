@@ -67,19 +67,6 @@ function simulateInputStringEntry(string,element) {
     document.execCommand('insertText', true, string );
 }
 
-function displayOverlay() {
-    $("body").append('<div id="overlay">' +
-        '<div class="overlaytext">' +
-        '<center><img src="'+chrome.extension.getURL("images/lightningbug128.png")+'"></center>' +
-        'Creating lesson task ...' +
-        '</div></div>')
-    $("#overlay").css( "display" , "block");
-}
-
-function hideOverlay() {
-    $("#overlay").css( "display" , "none");
-}
-
 function prime_data_fields( lesson ) {
     console.log( lesson );
 
@@ -104,7 +91,7 @@ function prime_data_fields( lesson ) {
         if (isEmptyOrSpaces($("#ff_addtask_date_due").val())) {
             //set the task start date
             var startdate = lesson.start;
-            if ( ! 'startdate' in items || items.startdate === "start_day_before") {
+            if ( items.startdate === undefined || items.startdate === "start_day_before") {
                 startdate.setDate(startdate.getDate() - 1);
             }
             $("#task\\.startDat").val(startdate.toString());
@@ -116,7 +103,7 @@ function prime_data_fields( lesson ) {
 
             //set the task end date
             var enddate = lesson.end;
-            if ( ! 'duedate' in items || items.duedate === "due_day_after") {
+            if ( items.duedate === undefined || items.duedate === "due_day_after") {
                 enddate.setDate(enddate.getDate() + 1);
             }
             $("#task\\.dueDat").val(enddate.toString());
@@ -148,7 +135,8 @@ function classlist_changed(mutations) {
     for( var index=0 ; index < mutations.length ; index ++ ) {
         if( mutations[index].addedNodes.length > 0 ) {
             selectLessonClass(g_lesson);
-            
+
         }
     }
 }
+
